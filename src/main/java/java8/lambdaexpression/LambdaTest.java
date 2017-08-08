@@ -24,10 +24,12 @@ public class LambdaTest {
 		}));
 
 		executorService.shutdown();
-		
+
 		ExecutorService executorService2 = Executors.newFixedThreadPool(10);
 		IntStream.range(0, 5).forEach(i -> executorService2.submit(() -> System.out.println("Running task " + i)));
 		executorService2.shutdown();
+
+		
 	}
 
 }
