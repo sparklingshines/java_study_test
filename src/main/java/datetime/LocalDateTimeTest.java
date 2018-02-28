@@ -1,9 +1,6 @@
 package datetime;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -19,6 +16,10 @@ public class LocalDateTimeTest {
 		LocalDateTime localDateTime = LocalDateTime.parse("2017-07-20 15:27:44", dateTimeFormatter);
 		System.out.println(System.currentTimeMillis());
 		System.out.println(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+		//获取秒数
+		Long second = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
+		//获取毫秒数
+		Long milliSecond = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
 		System.out.println("字符串转LocalDateTime: " + localDateTime);
 
 		dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
